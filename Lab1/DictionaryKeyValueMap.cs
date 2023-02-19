@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DSA.DataStructures.Trees;
+using System;
 using System.Collections.Generic;
 
 namespace Lab1
@@ -18,7 +19,9 @@ namespace Lab1
 
         public KeyValuePair<TKey, TValue> Get(TKey key)
         {
-            return new KeyValuePair<TKey, TValue>(key, dictionary[key]);
+            TValue value;
+            dictionary.TryGetValue(key, out value);
+            return new KeyValuePair<TKey, TValue>(key, value);
         }
 
         public bool Remove(TKey key)
